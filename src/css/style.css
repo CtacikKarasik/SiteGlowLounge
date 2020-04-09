@@ -1,0 +1,97 @@
+@font-face {
+
+    font-family: 'MyFont';
+
+    
+    src: url('../fonts/ALover.ttf.ttf') format('truetype');
+    
+    
+    font-weight: normal;
+    
+    font-style: normal;
+    
+}
+
+html { 
+    height: 100%; 
+    font-family: 'MyFont';
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.header {
+    background: #0b182b;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_logo {
+    background: #0b182b;
+}
+
+.header_titel {
+    font-size: 56px;
+    margin-bottom: 40px;
+}
+
+.header_slogan {
+    font-size: 28px;
+    line-height: 42px;
+    margin-bottom: 40px;
+}
+
+.header_arrow {
+    background: #0b182b;
+    background-position: center;
+}
+
+.header_arrow img{
+    background: #0b182b;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 20px;
+
+}
+
+.header_reserv {
+    background: #0b182b;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.button {
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+
+    display: inline-block;
+
+    border-width: 2px;
+    border-color: #fff;
+    border-style: solid;
+    border-radius: 50px;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 23px;
+    padding-right: 23px;
+
+    margin-bottom: 20px;
+
+}
+
+.button:hover {
+    color: #0b182b;
+    background-color: #fff;
+
+}
+
+
+footer {
+    background: #9aabc5;
+}

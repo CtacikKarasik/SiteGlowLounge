@@ -1,0 +1,147 @@
+@font-face {
+
+    font-family: 'MyFont';
+
+    
+    src: url('../fonts/ALover.ttf') format('truetype');
+    
+    
+    font-weight: normal;
+    
+    font-style: normal;
+    
+}
+
+html { 
+    height: 100%; 
+    font-family: 'MyFont';
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.header {
+    background: #0b182b;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_logo {
+    background: #0b182b;
+}
+
+.header_titel {
+    font-size: 56px;
+    margin-bottom: 40px;
+}
+
+.header_slogan {
+    font-size: 28px;
+    line-height: 42px;   
+}
+
+.reservation {
+    background: #0b182b;
+    padding-top: 30px;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.row_reserv1 {
+    margin-bottom: 40px;
+}
+.row_reserv2 {
+    margin-bottom: 40px;
+}
+
+
+
+.button  {
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    text-align: left;
+    display: inline-block;
+
+    border-width: 2px;
+    border-color: #fff;
+    border-style: solid;
+    border-radius: 50px;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 23px;
+    padding-right: 23px;
+
+    margin-bottom: 20px;
+
+}
+
+.button:hover {
+    color: #0b182b;
+    background-color: #fff;
+
+}
+
+
+.service__form {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: auto;
+    height: 83px;
+    border-radius: 8px;
+    box-shadow: 0 -1px 6px 0 rgba(69, 19, 19, 0.39);
+    background-color: #fbe9c7;
+    justify-content: center
+}
+
+.input_phone_number {
+    width: 360px;
+    height: 44px;
+    border-radius: 3px;
+    border: solid 1px #ccc9c2;
+    background-color: #fffcf5;
+    justify-content: center
+}
+
+.button_new {
+    width: 110px;
+    height: 44px;
+    border-radius: 3px;
+    border: solid 1px #ccc9c2;
+    background-image: linear-gradient(to bottom, #fffcf6, #edebe5);
+}
+
+.service__form .input_phone_number span > i.icon_phone_number {
+    display:flex;
+    background-color:#8b7971;
+    background:url(https://static.freemake.com/services/fwc/link.png);
+    background-size:20px;
+    background-position:center;
+    background-repeat:no-repeat;
+    width:100%;
+    height:100%
+}
+.service__form .input_phone_number span > i.icon_success_phone_number {
+    display:flex;
+    background-color:#8b7971;
+    background:url(https://static.freemake.com/mbl/images/check-arrow.png);
+    background-size:20px;
+    background-position:center;
+    background-repeat:no-repeat;
+    width:100%;
+    height:100%
+}
+
+footer {
+    background: #9aabc5;
+}

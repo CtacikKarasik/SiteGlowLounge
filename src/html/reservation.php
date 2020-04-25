@@ -25,22 +25,22 @@
     </div>
     <div class="reservation">     
         <div class="row_reserv1">
-            <button class="button_new" data-bind="click: reservationTable">
+            <button class="button_new" data-info-table="1" data-ps-table="true" data-bind="click: selectTable">
                 <span>Tab №1</span>
             </button>
-            <div class="button" class="idButton1" data-bind="click: reservationTable">reserv1</div>
-            <div class="button" class="idButton2" data-bind="click: reservationTable">reserv2</div>
-            <div class="button" class="idButton3" data-bind="click: reservationTable">reserv3</div>
+            <div class="button" class="idButton1" data-info-table="2" data-ps-table="true" data-bind="click: selectTable">reserv1</div>
+            <div class="button" class="idButton2" data-info-table="3" data-ps-table="true" data-bind="click: selectTable">reserv2</div>
+            <div class="button" class="idButton3" data-info-table="4" data-ps-table="false" data-bind="click: selectTable">reserv3</div>
         </div>
         <div class="row_reserv2">
-            <div class="button" class="idButton4" data-bind="click: reservationTable">reserv4</div>
-            <div class="button" class="idButton5" data-bind="click: reservationTable">reserv5</div>
-            <div class="button" class="idButton6" data-bind="click: reservationTable">reserv6</div>
+            <div class="button" class="idButton4" data-info-table="5" data-ps-table="false" data-bind="click: selectTable">reserv4</div>
+            <div class="button" class="idButton5" data-info-table="6" data-ps-table="false" data-bind="click: selectTable">reserv5</div>
+            <div class="button" class="idButton6" data-info-table="7" data-ps-table="false" data-bind="click: selectTable">reserv6</div>
         </div>
         <div class="row_reserv3">
-            <div class="button" class="idButton7" data-bind="click: reservationTable">reserv7</div>
-            <div class="button" class="idButton8" data-bind="click: reservationTable">reserv8</div>
-            <div class="button" class="idButton9" data-bind="click: reservationTable">reserv9</div>
+            <div class="button" class="idButton7" data-info-table="8" data-ps-table="false" data-bind="click: selectTable">reserv7</div>
+            <div class="button" class="idButton8" data-info-table="9" data-ps-table="false" data-bind="click: selectTable">reserv8</div>
+            <div class="button" class="idButton9" data-info-table="10" data-ps-table="false" data-bind="click: selectTable">reserv9</div>
         </div>
     </div>
 
@@ -49,9 +49,46 @@
             <div class="input_phone_number">
                 <label>Номер телефона</label>
                 <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+7 999 888 77 66" data-bind="value: phoneNumber">
-                
             </div>
-        </div>
+            <div class="input_name">
+                <label>Ваше имя</label>
+                <input type="text" name="nameUser" id="nameUser" placeholder="имя" data-bind="value: nameUser">
+            </div>
+
+            <div class="number_startTime">
+                <div class="number_day">
+                    <label>День</label>
+                    <input type="number" id="numberDay" min="1" max="31" step="1" data-bind="value: numberDay">
+                </div>
+                <div class="number_hours">
+                    <label>Время</label>
+                    <input type="number" id="numberHour" min="0" max="23" step="1" data-bind="value: numberHours">
+                </div>
+                <div class="number_minutes">
+                    <input type="number" id="numberMinute" min="0" max="50" step="10" data-bind="value: numberMinutes">
+                </div>
+            </div>
+
+            <div class="slide_durationReserved">
+                <label>Длительность</label>
+                <input type="range" min="1" max="5" class="sliderDuration" id="sliderDuration" data-bind="value: duration">
+                <output id="ong" for="sliderDuration" data-bind="value: duration"></output>
+            </div>
+            <div class="slide_numberGuests">
+                <label>Количество гостей</label>
+                <input type="range" min="1" max="20" class="sliderGuests" id="sliderGuests" data-bind="value: numberGuests">
+                <output id="ong" for="sliderGuests" data-bind="value: numberGuests"></output>
+            </div>
+            <div class="input_comment">
+                <label>Комментарий к заказу</label>
+                <input type="text" name="comment" id="comment" placeholder="..." data-bind="value: comment">
+            </div>
+            <div class="button_reserved">
+                <button class="button_new" data-bind="click: clickReserved">
+                  <span>Забронировать</span>
+                </button>
+            </div>
+        </div>     
     </div>
 </div>
 

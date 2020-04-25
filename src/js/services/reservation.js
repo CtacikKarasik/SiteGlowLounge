@@ -1,4 +1,5 @@
 define(['knockout', 'vm/MainViewModel'], function() {
+    'use strict';
 
     var ko = require('knockout');
     var MainViewModel = require('vm/MainViewModel');

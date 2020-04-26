@@ -56,6 +56,10 @@
             </div>
 
             <div class="number_startTime">
+                <div class="number_month">
+                    <label>Месяц</label>
+                    <input type="number" id="numberMonth" min="1" max="12" step="1" data-bind="value: numberMonth">
+                </div>
                 <div class="number_day">
                     <label>День</label>
                     <input type="number" id="numberDay" min="1" max="31" step="1" data-bind="value: numberDay">

@@ -1,7 +1,8 @@
 requirejs.config({
     'baseUrl': '/js',
     'paths': {
+        'jquery': '/js/lib/jquery',
     }
 });
 
-requirejs(['services/reservation']);
+requirejs(['reservation']);

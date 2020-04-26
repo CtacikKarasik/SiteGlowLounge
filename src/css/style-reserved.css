@@ -105,7 +105,6 @@ html {
 }
 
 .input_phone_number {
-    width: 400px;
     height: 44px;
     border-radius: 3px;
     border: solid 1px #ccc9c2;
@@ -117,7 +116,6 @@ html {
 }
 
 .input_name {
-    width: 400px;
     height: 44px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -126,12 +124,21 @@ html {
 }
 
 .number_startTime {
-    width: 400px;
     height: 44px;
     margin-top: 10px;
     margin-bottom: 10px;
     padding-left: 10px;
     background-color: #159da1;
+}
+
+.number_month {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+#numberMonth {
+    width: 30px;
 }
 
 .number_day {
@@ -154,7 +161,6 @@ html {
 }
 
 .slide_durationReserved {
-    width: 400px;
     height: 80px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -192,7 +198,6 @@ html {
 }
 
 .slide_numberGuests {
-    width: 400px;
     height: 44px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -201,7 +206,6 @@ html {
 }
 
 .input_comment {
-    width: 400px;
     height: 44px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -210,7 +214,6 @@ html {
 }
 
 .button_reserved {
-    width: 400px;
     height: 44px;
     margin-top: 10px;
     margin-bottom: 10px;

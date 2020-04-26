@@ -28,7 +28,7 @@ po = document.createElement("script");
 po.type = "text/javascript";
 po.async = false;
 po.src = "../js/lib/require.js";
-po.setAttribute("data-main", "../js/services/config.js");
+po.setAttribute("data-main", "../js/config.js");
 putElemOnPageJS();
 
 

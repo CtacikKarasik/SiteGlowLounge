@@ -1,5 +1,5 @@
 define(function () {
-    function MainViewModel(ko) {
+    function MainViewModel(ko, reservProcess) {
         'use strict';
         var self = this;
 
@@ -10,10 +10,12 @@ define(function () {
         self.nameUser = ko.observable("...");
 
         let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
         let currentDay = currentDate.getDate();
         let currentHours = currentDate.getHours();
         currentHours = currentHours + 2;
 
+        self.numberMonth = ko.observable(currentMonth + 1);
         self.numberDay = ko.observable(currentDay);
         self.numberHours = ko.observable(currentHours);
         self.numberMinutes = ko.observable('00');
@@ -36,6 +38,7 @@ define(function () {
                 isPS4Table : self.isPS4Table,
                 phoneNumber : self.phoneNumber(),
                 nameUser : self.nameUser(),
+                numberMonth : self.numberMonth(),
                 numberDay : self.numberDay(),
                 numberHours : self.numberHours(),
                 numberMinutes : self.numberMinutes(),
@@ -44,6 +47,7 @@ define(function () {
                 comment : self.comment()
             };
             RequestToApi(ReservedInfo);
+            reservProcess.makeReserv(ReservedInfo);
         };
         
 
@@ -53,6 +57,7 @@ define(function () {
                         ReservedInfo.isPS4Table +"|"+ 
                         ReservedInfo.phoneNumber +"|"+ 
                         ReservedInfo.nameUser +"|"+ 
+                        ReservedInfo.numberMonth +"|"+
                         ReservedInfo.numberDay +"|"+ 
                         ReservedInfo.numberHours +"|"+ 
                         ReservedInfo.numberMinutes +"|"+ 

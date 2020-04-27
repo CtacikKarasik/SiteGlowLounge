@@ -27,7 +27,7 @@ define(function () {
         
        
         this.selectTable = function() { 
-            self.numberTable = '1'; //this.getAttribute('data-info-table');
+            self.numberTable = 1; //this.getAttribute('data-info-table');
             self.isPS4Table = true; //this.getAttribute('data-ps-table');
             document.querySelector(".service__form").style.display = "flex"; 
         };
@@ -43,7 +43,7 @@ define(function () {
                 numberHours : self.numberHours(),
                 numberMinutes : self.numberMinutes(),
                 duration : self.duration(),
-                numberGuests : self.numberGuests(),
+                numberGuests : Number(self.numberGuests()),
                 comment : self.comment()
             };
             RequestToApi(ReservedInfo);

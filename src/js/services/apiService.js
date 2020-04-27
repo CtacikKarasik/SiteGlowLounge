@@ -9,11 +9,10 @@ define(["jquery"], function($) {
         
         function requestToApi(apiUrl, tableInfo) {
             var requestParams = {
-                dataType: 'json',
                 type: 'POST',
                 url: apiUrl,
                 data: JSON.stringify(tableInfo),
-                headers: { 'Access-Control-Allow-Origin': 'http://localhost' },
+                headers: { 'Content-Type': 'application/json' },
             };
 
             return $.ajax(requestParams);

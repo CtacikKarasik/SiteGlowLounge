@@ -25,22 +25,22 @@
     </div>
     <div class="reservation">     
         <div class="row_reserv1">
-            <button class="button_new" data-info-table="1" data-ps-table="true" data-bind="click: selectTable">
+            <button class="button_new" data-info-table="1" data-ps-table="1" data-bind="click: selectTable">
                 <span>Tab №1</span>
             </button>
-            <div class="button" class="idButton1" data-info-table="2" data-ps-table="true" data-bind="click: selectTable">reserv1</div>
-            <div class="button" class="idButton2" data-info-table="3" data-ps-table="true" data-bind="click: selectTable">reserv2</div>
-            <div class="button" class="idButton3" data-info-table="4" data-ps-table="false" data-bind="click: selectTable">reserv3</div>
+            <div class="button" class="idButton1" data-info-table="2" data-ps-table="1" data-bind="click: selectTable">reserv1</div>
+            <div class="button" class="idButton2" data-info-table="3" data-ps-table="1" data-bind="click: selectTable">reserv2</div>
+            <div class="button" class="idButton3" data-info-table="4" data-bind="click: selectTable">reserv3</div>
         </div>
         <div class="row_reserv2">
-            <div class="button" class="idButton4" data-info-table="5" data-ps-table="false" data-bind="click: selectTable">reserv4</div>
-            <div class="button" class="idButton5" data-info-table="6" data-ps-table="false" data-bind="click: selectTable">reserv5</div>
-            <div class="button" class="idButton6" data-info-table="7" data-ps-table="false" data-bind="click: selectTable">reserv6</div>
+            <div class="button" class="idButton4" data-info-table="5" data-bind="click: selectTable">reserv4</div>
+            <div class="button" class="idButton5" data-info-table="6" data-bind="click: selectTable">reserv5</div>
+            <div class="button" class="idButton6" data-info-table="7" data-bind="click: selectTable">reserv6</div>
         </div>
         <div class="row_reserv3">
-            <div class="button" class="idButton7" data-info-table="8" data-ps-table="false" data-bind="click: selectTable">reserv7</div>
-            <div class="button" class="idButton8" data-info-table="9" data-ps-table="false" data-bind="click: selectTable">reserv8</div>
-            <div class="button" class="idButton9" data-info-table="10" data-ps-table="false" data-bind="click: selectTable">reserv9</div>
+            <div class="button" class="idButton7" data-info-table="8" data-bind="click: selectTable">reserv7</div>
+            <div class="button" class="idButton8" data-info-table="9" data-bind="click: selectTable">reserv8</div>
+            <div class="button" class="idButton9" data-info-table="10" data-bind="click: selectTable">reserv9</div>
         </div>
     </div>
 

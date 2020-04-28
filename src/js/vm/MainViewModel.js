@@ -26,10 +26,11 @@ define(function () {
 
         
        
-        this.selectTable = function() { 
-            self.numberTable = 1; //this.getAttribute('data-info-table');
-            self.isPS4Table = true; //this.getAttribute('data-ps-table');
-            document.querySelector(".service__form").style.display = "flex"; 
+        this.selectTable = function(data, event) { 
+            let but = event.currentTarget;
+            self.numberTable = Number(but.getAttribute('data-info-table'));
+            self.isPS4Table = Boolean(but.getAttribute('data-ps-table'));
+            document.querySelector(".service__form").style.display = "flex";
         };
 
         this.clickReserved = function() { 

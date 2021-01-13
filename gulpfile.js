@@ -33,5 +33,14 @@ gulp.task('css', function() {
 
 gulp.task('js', gulp.parallel('main_js', 'services_js', 'vm_js', 'lib_js'));
 
-gulp.task('default', gulp.series('js', 'css'));
+
+gulp.task('watch', function() {
+    gulp.watch('src/original_source/js/*.js', gulp.series('main_js'));
+    gulp.watch('src/original_source/js/services/*.js', gulp.series('services_js'));
+    gulp.watch('src/original_source/js/vm/*.js', gulp.series('vm_js'));
+    gulp.watch('src/original_source/js/lib/*.js', gulp.series('lib_js'));
+    gulp.watch('src/original_source/css/*.css', gulp.series('css'));
+});
+
+gulp.task('default', gulp.series('watch'));
   

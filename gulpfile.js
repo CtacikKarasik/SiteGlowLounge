@@ -1,27 +1,32 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 gulp.task('main_js', function() {
     return gulp .src('src/original_source/js/*.js')
                 .pipe(rename({ suffix: ".min" }))
+                .pipe(uglify())
                 .pipe(gulp.dest('src/js'));
 });
 
 gulp.task('services_js', function() {
     return gulp .src('src/original_source/js/services/*.js')
                 .pipe(rename({ suffix: ".min" }))
+                .pipe(uglify())
                 .pipe(gulp.dest('src/js/services'));
 });
 
 gulp.task('vm_js', function() {
     return gulp .src('src/original_source/js/vm/*.js')
                 .pipe(rename({ suffix: ".min" }))
+                .pipe(uglify())
                 .pipe(gulp.dest('src/js/vm'));
 });
 
 gulp.task('lib_js', function() {
     return gulp .src('src/original_source/js/lib/*.js')
                 .pipe(rename({ suffix: ".min" }))
+                .pipe(uglify())
                 .pipe(gulp.dest('src/js/lib'));
 });
 
@@ -42,5 +47,5 @@ gulp.task('watch', function() {
     gulp.watch('src/original_source/css/*.css', gulp.series('css'));
 });
 
-gulp.task('default', gulp.series('watch'));
-  
+//gulp.task('default', gulp.series('watch'));
+gulp.task('default', gulp.series('js','css'));

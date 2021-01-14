@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
+var babel = require('gulp-babel');
 
 gulp.task('main_js', function() {
     return gulp .src('src/original_source/js/*.js')
@@ -11,6 +12,9 @@ gulp.task('main_js', function() {
 
 gulp.task('services_js', function() {
     return gulp .src('src/original_source/js/services/*.js')
+                .pipe(babel({
+                    presets: ['@babel/env']
+                }))
                 .pipe(rename({ suffix: ".min" }))
                 .pipe(uglify())
                 .pipe(gulp.dest('src/js/services'));
@@ -18,6 +22,9 @@ gulp.task('services_js', function() {
 
 gulp.task('vm_js', function() {
     return gulp .src('src/original_source/js/vm/*.js')
+                .pipe(babel({
+                    presets: ['@babel/env']
+                }))
                 .pipe(rename({ suffix: ".min" }))
                 .pipe(uglify())
                 .pipe(gulp.dest('src/js/vm'));

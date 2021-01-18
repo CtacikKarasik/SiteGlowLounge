@@ -8,7 +8,7 @@
 
     <link href="../img/favicon/favicon.ico" rel="shorcut icon" type="image/x-icon">
 
-    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/common.min.js"></script>
 
 </head>
 

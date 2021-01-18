@@ -1,8 +1,8 @@
 requirejs.config({
     'baseUrl': '/js',
     'paths': {
-        'jquery': '/js/lib/jquery',
+        'jquery': '/js/lib/jquery.min',
     }
 });
 
-requirejs(['reservation']);
+requirejs(['reservation.min']);

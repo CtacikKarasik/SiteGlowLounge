@@ -12,7 +12,7 @@ function putElemOnPageCSS(){
 ss = document.createElement("link");
 ss.type = "text/css";
 ss.rel = "stylesheet";
-ss.href = "../css/style-reserved.css";                  
+ss.href = "../css/style-reserved.min.css";                  
 putElemOnPageCSS();
 
 var po;
@@ -27,8 +27,8 @@ function putElemOnPageJS() {
 po = document.createElement("script");
 po.type = "text/javascript";
 po.async = false;
-po.src = "../js/lib/require.js";
-po.setAttribute("data-main", "../js/config.js");
+po.src = "../js/lib/require.min.js";
+po.setAttribute("data-main", "../js/config.min.js");
 putElemOnPageJS();
 
 

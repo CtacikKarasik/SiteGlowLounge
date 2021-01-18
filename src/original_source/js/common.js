@@ -1,4 +1,4 @@
-var ss;
+/*var ss;
 function putElemOnPageCSS(){
     lastlink = document.querySelectorAll("link[rel='stylesheet']").length;
     if(lastlink>0) 
@@ -12,8 +12,8 @@ function putElemOnPageCSS(){
 ss = document.createElement("link");
 ss.type = "text/css";
 ss.rel = "stylesheet";
-ss.href = "../css/style-reserved.min.css";                  
-putElemOnPageCSS();
+ss.href = "../css/style.min.css";                  
+putElemOnPageCSS();*/
 
 var po;
 var lastscript;

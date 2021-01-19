@@ -3,11 +3,22 @@ define(function () {
         'use strict';
         var self = this;
 
+        self.isVisibleReserv = ko.observable(true);
+        self.isVisibleCall = ko.observable(false);
+        self.colorReserv = ko.observable('#fff');
+        self.colorCall = ko.observable('#0b182b');
+
+
+        self.colorToday = ko.observable('#0b182b');
+        self.backgrToday = ko.observable('#9fcfe2');
+        self.colorTomorrow = ko.observable('#9fcfe2');
+        self.backgrTomorrow = ko.observable('#0b182b');
+
         self.isValidPhoneNumber = ko.observable(false);
         self.isInValidPhoneNumber = ko.observable(false);
         self.phoneNumber = ko.observable("+7 999 888 77 66");
 
-        self.nameUser = ko.observable("...");
+        self.nameUser = ko.observable("Имя...");
 
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth();
@@ -20,17 +31,52 @@ define(function () {
         self.numberHours = ko.observable(currentHours);
         self.numberMinutes = ko.observable('00');
 
+        self.isVisibleQuestion = ko.observable(true);
+        self.isVisiblePlus = ko.observable(false);
+        let isPS4 = false;
         self.duration = ko.observable(2);
         self.numberGuests = ko.observable(2);
-        self.comment = ko.observable("...");
+        self.time = ko.observable("Во сколько вас ждать?");
 
-        
+        this.clickIsPS4 = function() { 
+            if(!isPS4) {
+                self.isVisibleQuestion(false);
+                self.isVisiblePlus(true);
+                isPS4 = true; 
+            } else {
+                self.isVisibleQuestion(true);
+                self.isVisiblePlus(false);
+                isPS4 = false; 
+            }
+        };
+
+        this.clickToday = function() { 
+            self.colorToday('#0b182b');
+            self.backgrToday('#9fcfe2');
+            self.colorTomorrow('#9fcfe2');
+            self.backgrTomorrow('#0b182b');  
+        };
+
+        this.clickTomorrow = function() { 
+            self.colorToday('#9fcfe2');
+            self.backgrToday('#0b182b');
+            self.colorTomorrow('#0b182b');
+            self.backgrTomorrow('#9fcfe2');  
+        };
        
-        this.selectTable = function(data, event) { 
-            let but = event.currentTarget;
-            self.numberTable = Number(but.getAttribute('data-info-table'));
-            self.isPS4Table = Boolean(but.getAttribute('data-ps-table'));
-            document.querySelector(".service__form").style.display = "flex";
+        this.clickReservBut = function() { 
+            self.colorReserv('#fff');
+            self.colorCall('#0b182b');
+            self.isVisibleCall(false);
+            self.isVisibleReserv(true);
+            
+        };
+
+        this.clickCallBut = function() { 
+            self.colorReserv('#0b182b');
+            self.colorCall('#fff');
+            self.isVisibleReserv(false);
+            self.isVisibleCall(true);
         };
 
         this.clickReserved = function() { 

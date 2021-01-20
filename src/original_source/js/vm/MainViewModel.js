@@ -11,8 +11,10 @@ define(function () {
 
         self.colorToday = ko.observable('#0b182b');
         self.backgrToday = ko.observable('#9fcfe2');
+        self.fontSizeToday = ko.observable('32px');
         self.colorTomorrow = ko.observable('#9fcfe2');
         self.backgrTomorrow = ko.observable('#0b182b');
+        self.fontSizeTomorrow = ko.observable('24px');
 
         self.isValidPhoneNumber = ko.observable(false);
         self.isInValidPhoneNumber = ko.observable(false);
@@ -38,6 +40,18 @@ define(function () {
         self.numberGuests = ko.observable(2);
         self.time = ko.observable("Во сколько вас ждать?");
 
+
+        this.CopyNumber = function() {
+            var text = document.getElementById("copy_number_input");
+            text.value = '+7 (910) 790-78-80';
+            text.select();    
+            try {
+                document.execCommand('copy');
+            } catch (err) {
+                throw new Error('Didnt work :(');
+            }
+        };
+
         this.clickIsPS4 = function() { 
             if(!isPS4) {
                 self.isVisibleQuestion(false);
@@ -54,7 +68,9 @@ define(function () {
             self.colorToday('#0b182b');
             self.backgrToday('#9fcfe2');
             self.colorTomorrow('#9fcfe2');
-            self.backgrTomorrow('#0b182b');  
+            self.backgrTomorrow('#0b182b');
+            self.fontSizeToday('32px');  
+            self.fontSizeTomorrow('24px');  
         };
 
         this.clickTomorrow = function() { 
@@ -62,6 +78,8 @@ define(function () {
             self.backgrToday('#0b182b');
             self.colorTomorrow('#0b182b');
             self.backgrTomorrow('#9fcfe2');  
+            self.fontSizeToday('24px');  
+            self.fontSizeTomorrow('32px');  
         };
        
         this.clickReservBut = function() { 
@@ -90,11 +108,10 @@ define(function () {
                 numberHours : self.numberHours(),
                 numberMinutes : self.numberMinutes(),
                 duration : self.duration(),
-                numberGuests : Number(self.numberGuests()),
-                comment : self.comment()
+                numberGuests : Number(self.numberGuests())
             };
             RequestToApi(ReservedInfo);
-            reservProcess.makeReserv(ReservedInfo);
+            //reservProcess.makeReserv(ReservedInfo);
         };
         
 

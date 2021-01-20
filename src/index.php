@@ -62,10 +62,10 @@
               <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+7 999 888 77 66" data-bind="value: phoneNumber">
               <input type="text" name="nameUser" id="nameUser" placeholder="Имя" data-bind="value: nameUser">
               <div class="number_day">
-                <button type="button" class="button_today" data-bind="style: { color: colorToday, background: backgrToday }, click: clickToday">
+                <button type="button" class="button_today" data-bind="style: { color: colorToday, background: backgrToday, 'font-size': fontSizeToday }, click: clickToday">
                     <span>Сегодня</span>
                 </button>
-                <button type="button" class="button_tomorrow" data-bind="style: { color: colorTomorrow, background: backgrTomorrow }, click: clickTomorrow">
+                <button type="button" class="button_tomorrow" data-bind="style: { color: colorTomorrow, background: backgrTomorrow, 'font-size': fontSizeTomorrow }, click: clickTomorrow">
                     <span>Завтра</span>
                 </button>
               </div>
@@ -97,6 +97,10 @@
         </div>
       </div>
       <div class="call__form" data-bind="visible: isVisibleCall">
+        <div class="call__form_number">
+              <input id="copy_number_input" readonly ="">
+              <button id='copy_number' data-bind="click: CopyNumber">+7 (910) 790-78-80</button>
+        </div>
         <div class="call__form_text">
           Градиент для текста — технология экспериментальная, поддерживается только в браузерах на основе WebKit-движка. Тем не менее, этим приёмом можно свободно пользоваться, а для браузеров, не поддерживающих это свойство, просто задавать цвет текста. Таким образом, браузеры, поддерживающие свойства, отобразят текст с градиентом, а браузеры, не поддерживающие свойство, просто пропустят его в коде и установят для текста заданный цвет.
         </div>

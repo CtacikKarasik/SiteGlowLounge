@@ -18,8 +18,7 @@ define(function () {
 
         self.isValidPhoneNumber = ko.observable(false);
         self.isInValidPhoneNumber = ko.observable(false);
-        self.phoneNumber = ko.observable("+7 999 888 77 66");
-
+        self.phoneNumber = ko.observable("+7 (910) 790-78-80");
         self.nameUser = ko.observable("Имя...");
 
         let currentDate = new Date();
@@ -40,6 +39,58 @@ define(function () {
         self.numberGuests = ko.observable(2);
         self.time = ko.observable("Во сколько вас ждать?");
 
+        this.ClickOnInputPhoneNumber = function() {
+            if(self.phoneNumber() == "+7 (910) 790-78-80")
+             {
+                 self.phoneNumber("");
+             }
+        }
+        this.ClickOnInputNameUser = function() {
+            if(self.nameUser() == "Имя...")
+             {
+                self.nameUser("");
+             }
+        }
+
+        this.ClickOnInputTime = function() {
+            if(self.time() == "Во сколько вас ждать?")
+             {
+                self.time("");
+             }
+        }
+
+        this.clickMinusDur = function() {
+            if(self.duration() > 1) {
+                let value = self.duration() - 1;
+                self.duration(value);
+            } else if(self.duration() === '5 +') {
+                self.duration(5);
+            }
+        }
+        this.clickPlusDur = function() {
+            if(self.duration() < 5) {
+                let value = self.duration() + 1;
+                self.duration(value);
+            } else {
+                self.duration('5 +');
+            }
+        }
+        this.clickMinusGuest = function() {
+            if(self.numberGuests() > 1) {
+                let value = self.numberGuests() - 1;
+                self.numberGuests(value);
+            } else if(self.numberGuests() === '10 +') {
+                self.numberGuests(10);
+            }
+        }
+        this.clickPlusGuest = function() {
+            if(self.numberGuests() < 10) {
+                let value = self.numberGuests() + 1;
+                self.numberGuests(value);
+            } else {
+                self.numberGuests('10 +');
+            }
+        }
 
         this.CopyNumber = function() {
             var text = document.getElementById("copy_number_input");
@@ -69,7 +120,7 @@ define(function () {
             self.backgrToday('#9fcfe2');
             self.colorTomorrow('#9fcfe2');
             self.backgrTomorrow('#0b182b');
-            self.fontSizeToday('32px');  
+            self.fontSizeToday('35px');  
             self.fontSizeTomorrow('24px');  
         };
 
@@ -79,7 +130,7 @@ define(function () {
             self.colorTomorrow('#0b182b');
             self.backgrTomorrow('#9fcfe2');  
             self.fontSizeToday('24px');  
-            self.fontSizeTomorrow('32px');  
+            self.fontSizeTomorrow('35px');  
         };
        
         this.clickReservBut = function() { 

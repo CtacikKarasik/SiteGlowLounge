@@ -59,8 +59,8 @@
         <div class="service__inputs">
           <form class="decor">
             <div class="form-inner">
-              <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+7 999 888 77 66" data-bind="value: phoneNumber">
-              <input type="text" name="nameUser" id="nameUser" placeholder="Имя" data-bind="value: nameUser">
+              <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+7 (910) 790-78-80" data-bind="click: ClickOnInputPhoneNumber, value: phoneNumber">
+              <input type="text" name="nameUser" id="nameUser" placeholder="Имя..." data-bind="click: ClickOnInputNameUser, value: nameUser">
               <div class="number_day">
                 <button type="button" class="button_today" data-bind="style: { color: colorToday, background: backgrToday, 'font-size': fontSizeToday }, click: clickToday">
                     <span>Сегодня</span>
@@ -69,20 +69,32 @@
                     <span>Завтра</span>
                 </button>
               </div>
-              <div class="slide_Reserved"> 
-                <label class="titel_duration">Как долго планируете сидеть?</label>
-                <div class="reserv_duration">
-                    <input type="range" min="1" max="5" class="sliderDuration" id="sliderDuration" data-bind="value: duration">
-                    <output id="valueDuration" for="sliderDuration" data-bind="value: duration"></output>
+
+              <div class="duration_and_guests"> 
+                <label class="titel_duration" style="display: none">Как долго планируете сидеть?</label>
+                <div class="reserv_duration" style="display: none"> 
+                  <button type="button" class="but_minus">
+                    <img src="img/minus1.png" alt="minus" title="Уменьшить" data-bind="click: clickMinusDur">   
+                  </button>
+                  <span id="valueDuration" data-bind="text: duration"></span>
+                  <button type="button" class="but_plus">
+                    <img src="img/plus1.png" alt="plus" title="Добавить" data-bind="click: clickPlusDur">
+                  </button>
                 </div>
                 <label class="titel_guests">Сколько будет человек?</label>
-                <div class="reserv_guests">
-                    <input type="range" min="1" max="10" class="sliderGuests" id="sliderGuests" data-bind="value: numberGuests">
-                    <output id="valueGuests" for="sliderGuests" data-bind="value: numberGuests"></output>
+                <div class="reserv_guests"> 
+                  <button type="button" class="but_minus">
+                    <img src="img/minus1.png" alt="minus" title="Уменьшить" data-bind="click: clickMinusGuest">   
+                  </button>
+                  <span id="valueGuests" data-bind="text: numberGuests"></span>
+                  <button type="button" class="but_plus">
+                    <img src="img/plus1.png" alt="plus" title="Добавить" data-bind="click: clickPlusGuest">
+                  </button>
                 </div>
               </div>
+
               <div class="footer_Reserved"> 
-                <textarea type="text" name="time" id="time" placeholder="Во сколько вас ждать?" rows="2" data-bind="value: time"></textarea>
+                <textarea type="text" name="time" id="time" placeholder="Во сколько вас ждать?" rows="2" data-bind="click: ClickOnInputTime, value: time"></textarea>
                 <button type="button" class="but_is_question_ps4">
                     <img src="img/question.png" alt="question" title="Хотите стол с PS4?" data-bind="visible: isVisibleQuestion, click: clickIsPS4">
                     <img src="img/plus.png" alt="question" title="Хотите стол с PS4?" data-bind="visible: isVisiblePlus, click: clickIsPS4">
@@ -97,12 +109,12 @@
         </div>
       </div>
       <div class="call__form" data-bind="visible: isVisibleCall">
-        <div class="call__form_number">
+        <div class="call__form_number" data-bind="click: CopyNumber">
               <input id="copy_number_input" readonly ="">
               <button id='copy_number' data-bind="click: CopyNumber">+7 (910) 790-78-80</button>
         </div>
         <div class="call__form_text">
-          Градиент для текста — технология экспериментальная, поддерживается только в браузерах на основе WebKit-движка. Тем не менее, этим приёмом можно свободно пользоваться, а для браузеров, не поддерживающих это свойство, просто задавать цвет текста. Таким образом, браузеры, поддерживающие свойства, отобразят текст с градиентом, а браузеры, не поддерживающие свойство, просто пропустят его в коде и установят для текста заданный цвет.
+          Градиент для текста — технология экспериментальная, поддерживается только в браузерах на основе WebKit-движка. Тем не менее, этим приёмом можно свободно пользоваться, а для браузеров, не поддерживающих это свойство, просто задавать цвет текста. Таким образом, браузеры, поддерживающие свойства, отобразят текст с градиентом, а браузеры.
         </div>
       </div>
     </div>

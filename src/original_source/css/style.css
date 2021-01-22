@@ -174,23 +174,25 @@ html {
 .button_reserv {
     text-align: center;
     padding-top: 20px;
-    font-size: 30px;
+    font-size: 35px;
     color: #fff;
+    cursor: pointer;
 }
 
 .button_reserv:hover {
-    font-size: 33px;
+    font-size: 37px;
 }
 
 .button_call {
     text-align: center;
     padding-top: 20px;
-    font-size: 30px;
+    font-size: 35px;
     color: #0b182b;
+    cursor: pointer;
 }
 
 .button_call:hover {
-    font-size: 33px;
+    font-size: 37px;
 }
 
 .decor {
@@ -199,7 +201,7 @@ html {
     margin: 50px auto 50px;
     background: white;
     border-radius: 30px;
-    padding: 40px 30px 30px 30px;
+    padding: 25px 30px 20px 30px;
  }
  .form-inner input {
     width: 100%;
@@ -213,6 +215,8 @@ html {
     outline: none;
     text-align: center;
  }
+
+ 
 
 .form-inner textarea {
     margin-bottom: 10px;
@@ -239,6 +243,11 @@ html {
     background: #0b182b;
     color: white;
     font-size: 40px;
+    cursor: pointer;
+ }
+
+ .form-inner input[type="submit"]:hover {
+    font-size: 42px;
  }
 
  .call__form_number {
@@ -249,6 +258,7 @@ html {
     border-radius: 30px;
     padding: 40px 30px 30px 30px;
     text-align: center;
+    cursor: pointer;
  }
  #copy_number_input {
     opacity: 0;
@@ -262,6 +272,7 @@ html {
     font-family: 'MyFont';
     border-width: 0;
     outline: none;
+    cursor: pointer;
  }
  .call__form_text {
     color: white;
@@ -283,6 +294,7 @@ html {
     margin-right: 10px;
     outline: none;
     font-family: 'MyFont';
+    cursor: pointer;
 }
 
 .button_today:hover {
@@ -301,6 +313,7 @@ html {
     margin-left: 10px;
     outline: none;
     font-family: 'MyFont';
+    cursor: pointer;
 }
 
 .button_tomorrow:hover {
@@ -317,6 +330,7 @@ html {
     padding: 10px 0px 10px 0px;
     margin-left: 10px;
     outline: none;
+    cursor: pointer;
 }
 
 .button_new:hover {
@@ -340,28 +354,66 @@ html {
 
 #valueDuration {
     background: #9fcfe2;
-    font-size: 40px;
-    margin: 10px 0px 10px 0px;
-    padding: 2px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    font-size: 60px;
+    padding-top: 2px;
 }
 
 #valueGuests {
     background: #9fcfe2;
-    font-size: 40px;
-    margin: 10px 0px 10px 0px;
-    padding: 2px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    font-size: 60px;
+    padding-top: 2px;
 }
 
 .titel_duration {
-    font-size: 25px;
+    font-size: 36px;
 }
 
 .titel_guests {
-    font-size: 25px;
+    font-size: 36px;
+}
+
+.reserv_duration, .reserv_guests {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    margin-top: 10px;
+    background: #9fcfe2;
+    border-width: 0;
+    border-radius: 20px;
+    font-family: 'MyFont';
+    outline: none;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.duration_and_guests {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.but_minus {
+    background: #0b182b00;
+    border-width: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.but_minus:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.but_plus {
+    background: #0b182b00;
+    border-width: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.but_plus:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .footer_Reserved {
@@ -377,6 +429,7 @@ html {
     outline: none;
     background-color: #fff0;
     border-width: 0px;
+    cursor: pointer;
 }
 .but_is_question_ps4:hover {
     -webkit-transform: scale(1.2);
@@ -393,12 +446,13 @@ html {
     text-align: center;
     padding: 10px;
     outline: none;
+    cursor: pointer;
 }
 
 .but_is_ps4:hover {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 input[type=range]  {

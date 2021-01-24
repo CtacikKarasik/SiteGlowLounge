@@ -59,8 +59,8 @@
         <div class="service__inputs">
           <form class="decor">
             <div class="form-inner">
-              <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+7 (910) 790-78-80" data-bind="click: ClickOnInputPhoneNumber, value: phoneNumber">
-              <input type="text" name="nameUser" id="nameUser" placeholder="Имя..." data-bind="click: ClickOnInputNameUser, value: nameUser">
+              <input type="text" name="phoneNumber" id="phoneNumber" maxlength="20" placeholder="+7 (910) 790-78-80" data-bind="style: { 'box-shadow': isInvalidPhoneNumber}, click: ClickOnInputPhoneNumber, value: phoneNumber">
+              <input type="text" name="nameUser" id="nameUser" maxlength="15" placeholder="Имя..." data-bind="style: { 'box-shadow': isInvalidNameUser}, click: ClickOnInputNameUser, value: nameUser">
               <div class="number_day">
                 <button type="button" class="button_today" data-bind="style: { color: colorToday, background: backgrToday, 'font-size': fontSizeToday }, click: clickToday">
                     <span>Сегодня</span>

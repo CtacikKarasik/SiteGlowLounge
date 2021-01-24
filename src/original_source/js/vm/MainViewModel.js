@@ -16,10 +16,11 @@ define(function () {
         self.backgrTomorrow = ko.observable('#0b182b');
         self.fontSizeTomorrow = ko.observable('24px');
 
-        self.isValidPhoneNumber = ko.observable(false);
-        self.isInValidPhoneNumber = ko.observable(false);
+
         self.phoneNumber = ko.observable("+7 (910) 790-78-80");
         self.nameUser = ko.observable("Имя...");
+        self.isInvalidPhoneNumber = ko.observable('none');
+        self.isInvalidNameUser = ko.observable('none');
 
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth();
@@ -39,13 +40,16 @@ define(function () {
         self.numberGuests = ko.observable(2);
         self.time = ko.observable("Во сколько вас ждать?");
 
+
         this.ClickOnInputPhoneNumber = function() {
+            self.isInvalidPhoneNumber('none');
             if(self.phoneNumber() == "+7 (910) 790-78-80")
              {
                  self.phoneNumber("");
              }
         }
         this.ClickOnInputNameUser = function() {
+            self.isInvalidNameUser('none');
             if(self.nameUser() == "Имя...")
              {
                 self.nameUser("");
@@ -149,37 +153,74 @@ define(function () {
         };
 
         this.clickReserved = function() { 
-            let ReservedInfo = {
-                numberTable : self.numberTable,
-                isPS4Table : self.isPS4Table,
-                phoneNumber : self.phoneNumber(),
-                nameUser : self.nameUser(),
-                numberMonth : self.numberMonth(),
-                numberDay : self.numberDay(),
-                numberHours : self.numberHours(),
-                numberMinutes : self.numberMinutes(),
-                duration : self.duration(),
-                numberGuests : Number(self.numberGuests())
-            };
-            RequestToApi(ReservedInfo);
-            //reservProcess.makeReserv(ReservedInfo);
+            if(isValidData()) {
+                let ReservedInfo = {
+                    isPS4 : isPS4,
+                    phoneNumber : self.phoneNumber(),
+                    nameUser : self.nameUser(),
+                    numberGuests : self.numberGuests(),
+                    dateReserv: '',
+                    timeReserv: '',
+                    comment: ''
+                };
+                RequestToApi(ReservedInfo);
+                //reservProcess.makeReserv(ReservedInfo);
+            } else {
+                console.log("Show error popup .....");
+            }
         };
         
 
         function RequestToApi(ReservedInfo) {
             
-            console.log(ReservedInfo.numberTable +"|"+ 
-                        ReservedInfo.isPS4Table +"|"+ 
-                        ReservedInfo.phoneNumber +"|"+ 
-                        ReservedInfo.nameUser +"|"+ 
-                        ReservedInfo.numberMonth +"|"+
-                        ReservedInfo.numberDay +"|"+ 
-                        ReservedInfo.numberHours +"|"+ 
-                        ReservedInfo.numberMinutes +"|"+ 
-                        ReservedInfo.duration +"|"+ 
-                        ReservedInfo.numberGuests +"|"+
-                        ReservedInfo.comment );
+            console.log('isPS4:' + ReservedInfo.isPS4 +"|"+ 
+                        'phoneNumber:' + ReservedInfo.phoneNumber +"|"+ 
+                        'nameUser:' + ReservedInfo.nameUser +"|"+ 
+                        'dateReserv:' + ReservedInfo.dateReserv +"|"+
+                        'timeReserv:' + ReservedInfo.timeReserv +"|"+ 
+                        'duration:' + ReservedInfo.duration +"|"+ 
+                        'comment:' + ReservedInfo.comment );
             console.log("RequestToApi .....");
+        }
+
+        function isValidData() {
+            
+            if(isValidPhoneNumber() && isValidNameUser()) {
+                return true;
+            }
+
+            return false;
+        }
+
+        function isValidPhoneNumber() {
+            const phoneRegex1 = new RegExp('^8[0-9]{10}'); 
+            const phoneRegex2 = new RegExp('^\\+7[0-9]{10}'); 
+
+            if(phoneRegex1.test(self.phoneNumber())) {
+                return true;
+              } if (phoneRegex2.test(self.phoneNumber())) {
+               
+                self.phoneNumber(self.phoneNumber().replace(/^\+7/, '8'));
+
+                return true;
+              }
+              else {
+                self.isInvalidPhoneNumber('0px 0px 3px 5px red');
+                return false;
+              }
+        }
+
+        function isValidNameUser() {
+            const nameUserRegex = new RegExp("[a-zA-Zа-яА-Я\-.,][^0-9_!?+=@#$(){}<>;:]{3,}$"); 
+
+            if(nameUserRegex.test(self.nameUser())) {
+                console.log("True №1....." + self.nameUser());
+                return true;
+              } else {
+                console.log("False ....." + self.nameUser());
+                self.isInvalidNameUser('0px 0px 3px 5px red');
+                return false;
+              }
         }
     }
     return MainViewModel;

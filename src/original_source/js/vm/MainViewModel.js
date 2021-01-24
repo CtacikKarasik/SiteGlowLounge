@@ -22,24 +22,16 @@ define(function () {
         self.isInvalidPhoneNumber = ko.observable('none');
         self.isInvalidNameUser = ko.observable('none');
 
-        let currentDate = new Date();
-        let currentMonth = currentDate.getMonth();
-        let currentDay = currentDate.getDate();
-        let currentHours = currentDate.getHours();
-        currentHours = currentHours + 2;
-
-        self.numberMonth = ko.observable(currentMonth + 1);
-        self.numberDay = ko.observable(currentDay);
-        self.numberHours = ko.observable(currentHours);
-        self.numberMinutes = ko.observable('00');
-
         self.isVisibleQuestion = ko.observable(true);
         self.isVisiblePlus = ko.observable(false);
         let isPS4 = false;
         self.duration = ko.observable(2);
         self.numberGuests = ko.observable(2);
         self.time = ko.observable("Во сколько вас ждать?");
-
+        self.isInvalidTime = ko.observable('none');
+        let timeReserv = '';
+        let comment = '';
+        let dateReserv = 'today';
 
         this.ClickOnInputPhoneNumber = function() {
             self.isInvalidPhoneNumber('none');
@@ -57,6 +49,7 @@ define(function () {
         }
 
         this.ClickOnInputTime = function() {
+            self.isInvalidTime('none');
             if(self.time() == "Во сколько вас ждать?")
              {
                 self.time("");
@@ -126,6 +119,7 @@ define(function () {
             self.backgrTomorrow('#0b182b');
             self.fontSizeToday('35px');  
             self.fontSizeTomorrow('24px');  
+            dateReserv = 'today';
         };
 
         this.clickTomorrow = function() { 
@@ -135,6 +129,7 @@ define(function () {
             self.backgrTomorrow('#9fcfe2');  
             self.fontSizeToday('24px');  
             self.fontSizeTomorrow('35px');  
+            dateReserv = 'tomorrow';
         };
        
         this.clickReservBut = function() { 
@@ -159,9 +154,9 @@ define(function () {
                     phoneNumber : self.phoneNumber(),
                     nameUser : self.nameUser(),
                     numberGuests : self.numberGuests(),
-                    dateReserv: '',
-                    timeReserv: '',
-                    comment: ''
+                    dateReserv: dateReserv,
+                    timeReserv: timeReserv,
+                    comment: comment
                 };
                 RequestToApi(ReservedInfo);
                 //reservProcess.makeReserv(ReservedInfo);
@@ -178,14 +173,13 @@ define(function () {
                         'nameUser:' + ReservedInfo.nameUser +"|"+ 
                         'dateReserv:' + ReservedInfo.dateReserv +"|"+
                         'timeReserv:' + ReservedInfo.timeReserv +"|"+ 
-                        'duration:' + ReservedInfo.duration +"|"+ 
+                        'numberGuests:' + ReservedInfo.numberGuests +"|"+ 
                         'comment:' + ReservedInfo.comment );
             console.log("RequestToApi .....");
         }
 
         function isValidData() {
-            
-            if(isValidPhoneNumber() && isValidNameUser()) {
+            if(isValidPhoneNumber() && isValidNameUser() && isValidTime()) {
                 return true;
             }
 
@@ -214,14 +208,37 @@ define(function () {
             const nameUserRegex = new RegExp("[a-zA-Zа-яА-Я\-.,][^0-9_!?+=@#$(){}<>;:]{3,}$"); 
 
             if(nameUserRegex.test(self.nameUser())) {
-                console.log("True №1....." + self.nameUser());
                 return true;
               } else {
-                console.log("False ....." + self.nameUser());
                 self.isInvalidNameUser('0px 0px 3px 5px red');
                 return false;
               }
         }
+
+        function isValidTime() {
+            const timeRegex1 = new RegExp("(?:0[0-9]|1[0-9]|2[0-3])[:.,; ][0-5][0-9]"); 
+            const timeRegex2 = new RegExp("(?:^(?:[0-9])|(?<=[vVkKвВсСкК\ ])(?:[0-9]))[:.,; ][0-5][0-9]"); 
+            const commentRegex = new RegExp('(?<=[:.,;][0-5][0-9]).+');
+
+            if(self.time().match(timeRegex1)) {
+                timeReserv = self.time().match(timeRegex1);
+                comment = self.time().match(commentRegex);
+                console.log("True №1....." + timeReserv);
+                console.log("Comment ....." + comment);
+                return true;
+              } if(self.time().match(timeRegex2)) {
+                    timeReserv = self.time().match(timeRegex2);
+                    comment = self.time().match(commentRegex);
+                    console.log("Comment ....." + comment);
+                    console.log("True №1....." + timeReserv);
+                    return true;
+                } else {
+                    console.log("False ....." + self.time());
+                    self.isInvalidTime('0px 0px 3px 5px red');
+                    return false;
+              }
+        }
+
     }
     return MainViewModel;
 });

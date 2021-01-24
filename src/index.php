@@ -94,7 +94,7 @@
               </div>
 
               <div class="footer_Reserved"> 
-                <textarea type="text" name="time" id="time" placeholder="Во сколько вас ждать?" rows="2" data-bind="click: ClickOnInputTime, value: time"></textarea>
+                <textarea type="text" name="time" id="time" placeholder="Во сколько вас ждать?" rows="2" maxlength="50" data-bind="style: { 'box-shadow': isInvalidTime }, click: ClickOnInputTime, value: time"></textarea>
                 <button type="button" class="but_is_question_ps4">
                     <img src="img/question.png" alt="question" title="Хотите стол с PS4?" data-bind="visible: isVisibleQuestion, click: clickIsPS4">
                     <img src="img/plus.png" alt="question" title="Хотите стол с PS4?" data-bind="visible: isVisiblePlus, click: clickIsPS4">

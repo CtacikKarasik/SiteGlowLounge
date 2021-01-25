@@ -1,4 +1,4 @@
 
 # Run tests
 
-    E:\ProjectHome\SiteGlowLounge> mocha --ui=tdd
+    E:\ProjectHome\SiteGlowLounge> mocha --ui=tdd test/mocha-bootstrap.js

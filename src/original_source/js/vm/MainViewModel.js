@@ -205,7 +205,7 @@ define(function () {
         }
 
         function isValidNameUser() {
-            const nameUserRegex = new RegExp("[a-zA-Zа-яА-Я\-.,][^0-9_!?+=@#$(){}<>;:]{3,}$"); 
+            const nameUserRegex = new RegExp("^[^0-9_!?+=@#$(){}<>;:][a-zA-Zа-яА-Я\-.,]{3,}$"); 
 
             if(nameUserRegex.test(self.nameUser())) {
                 return true;
@@ -216,9 +216,9 @@ define(function () {
         }
 
         function isValidTime() {
-            const timeRegex1 = new RegExp("(?:0[0-9]|1[0-9]|2[0-3])[:.,; ][0-5][0-9]"); 
-            const timeRegex2 = new RegExp("(?:^(?:[0-9])|(?<=[vVkKвВсСкК\ ])(?:[0-9]))[:.,; ][0-5][0-9]"); 
-            const commentRegex = new RegExp('(?<=[:.,;][0-5][0-9]).+');
+            const timeRegex1 = new RegExp("(?:0[0-9]|1[0-9]|2[0-3])[:.,-; ][0-5][0-9]"); 
+            const timeRegex2 = new RegExp("(?:^(?:[0-9])|(?<=[vVkKвВсСкК\ ])(?:[0-9]))[:.,-; ][0-5][0-9]"); 
+            const commentRegex = new RegExp('(?<=[:.,-;][0-5][0-9]).+');
 
             if(self.time().match(timeRegex1)) {
                 timeReserv = self.time().match(timeRegex1);

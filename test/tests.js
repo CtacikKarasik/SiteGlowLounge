@@ -3,9 +3,9 @@ requirejs.config({
     baseUrl: '.',
     nodeRequire: require
 });
-var chai = require('chai');
-var ko = require('../src/js/knockout.min');
-var MainViewModel = requirejs('../src/js/vm/MainViewModel.min.js');
+var chai = requirejs('chai');
+var ko = requirejs('src/js/knockout.min');
+var MainViewModel = requirejs('src/js/vm/MainViewModel.min');
 
 let assert = chai.assert;
 let expect = chai.expect;

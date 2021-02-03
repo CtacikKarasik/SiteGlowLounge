@@ -3,8 +3,16 @@ define(["jquery"], function($) {
     function ApiClient() {
         'use strict';
 
-        this.setTableReservedInfo = function(tableInfo){
-            return requestToApi('https://localhost:44374/' + 'api/reserved', tableInfo);
+        this.setTableReservedInfo = function(tableInfo) {
+
+            var tmp = {
+                isPS4: true, 
+                phoneNumber: "89109400605", 
+                nameUser: "stas", 
+                numberGuests: 4, 
+                dateReserv: "today"
+            }
+            return requestToApi('http://localhost:3070/' + 'api/reserved', tmp);
         };
         
         function requestToApi(apiUrl, tableInfo) {

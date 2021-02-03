@@ -15,7 +15,7 @@ define(['knockout.min',
         
         var apiService = new ApiService();
         var reservProcess = new ReservProcess(apiService);     
-        var mainViewModel = new MainViewModel(ko, reservProcess);
+        var mainViewModel = new MainViewModel(ko, apiService);
 
         ko.applyBindings(mainViewModel);
     }

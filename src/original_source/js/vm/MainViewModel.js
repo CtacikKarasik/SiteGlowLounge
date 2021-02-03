@@ -1,5 +1,5 @@
 define(function () {
-    function MainViewModel(ko, reservProcess) {
+    function MainViewModel(ko, apiService) {
         'use strict';
         var self = this;
 
@@ -159,9 +159,9 @@ define(function () {
                     comment: comment
                 };
                 RequestToApi(ReservedInfo);
-                //reservProcess.makeReserv(ReservedInfo);
+                apiService.setTableReservedInfo(ReservedInfo);
             } else {
-                console.log("Show error popup .....");
+                console.log("Show error popup ....");
             }
         };
         

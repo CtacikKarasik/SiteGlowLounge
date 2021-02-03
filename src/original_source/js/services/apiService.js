@@ -4,15 +4,7 @@ define(["jquery"], function($) {
         'use strict';
 
         this.setTableReservedInfo = function(tableInfo) {
-
-            var tmp = {
-                isPS4: true, 
-                phoneNumber: "89109400605", 
-                nameUser: "stas", 
-                numberGuests: 4, 
-                dateReserv: "today"
-            }
-            return requestToApi('http://localhost:3070/' + 'api/reserved', tmp);
+            return requestToApi('http://localhost:3070/' + 'api/reserved', tableInfo);
         };
         
         function requestToApi(apiUrl, tableInfo) {

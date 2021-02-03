@@ -1,4 +1,4 @@
-define(['chai', 'js/knockout.min', 'vm/MainViewModel.min'], function (chai, ko, MainViewModel) {
+define(['chai', 'js/knockout.min', 'vm/MainViewModel.min', 'test/fake/apiServiceFake.js'], function (chai, ko, MainViewModel, ApiServiceFake) {
     'use strict';
 
     let assert = chai.assert;
@@ -9,7 +9,8 @@ define(['chai', 'js/knockout.min', 'vm/MainViewModel.min'], function (chai, ko, 
 
     suite('MainViewModel', function() {
         setup(function() {
-            mainViewModel = new MainViewModel(ko, null);
+            let apiServiceFake = new ApiServiceFake(true);
+            mainViewModel = new MainViewModel(ko, apiServiceFake);
         });
     
         suite('clickReserved', function() {

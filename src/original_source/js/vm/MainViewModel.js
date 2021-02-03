@@ -220,17 +220,13 @@ define(function () {
             const timeRegex2 = new RegExp("(?:^(?:[0-9])|(?<=[vVkKвВсСкК\ ])(?:[0-9]))[:.,-; ][0-5][0-9]"); 
             const commentRegex = new RegExp('(?<=[:.,-;][0-5][0-9]).+');
 
-            if(self.time().match(timeRegex1)) {
-                timeReserv = self.time().match(timeRegex1);
-                comment = self.time().match(commentRegex);
-                console.log("True №1....." + timeReserv);
-                console.log("Comment ....." + comment);
+            if(timeRegex1.test(self.time())) {
+                timeReserv = timeRegex1.exec(self.time()).shift();
+                comment = commentRegex.test(self.time()) ? commentRegex.exec(self.time()) : '';
                 return true;
-              } if(self.time().match(timeRegex2)) {
-                    timeReserv = self.time().match(timeRegex2);
-                    comment = self.time().match(commentRegex);
-                    console.log("Comment ....." + comment);
-                    console.log("True №1....." + timeReserv);
+              } if(timeRegex2.test(self.time())) {
+                    timeReserv = timeRegex2.exec(self.time()).shift();
+                    comment = commentRegex.test(self.time()) ? commentRegex.exec(self.time()) : '';
                     return true;
                 } else {
                     console.log("False ....." + self.time());

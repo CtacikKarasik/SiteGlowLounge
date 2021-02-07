@@ -12,7 +12,8 @@ define(["jquery"], function($) {
                 type: 'POST',
                 url: apiUrl,
                 data: JSON.stringify(tableInfo),
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', 'X-Cache-Header': 'f6b2507a6a3f'  },
+                timeout: 20000
             };
 
             return $.ajax(requestParams);

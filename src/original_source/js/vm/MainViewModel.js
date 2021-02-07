@@ -205,7 +205,7 @@ define(function () {
         }
 
         function isValidNameUser() {
-            const nameUserRegex = new RegExp("^[^0-9_!?+=@#$(){}<>;:][a-zA-Zа-яА-Я\-.,]{3,}$"); 
+            const nameUserRegex = new RegExp("^[^0-9_!?+=@#$(){}<>;:][a-zA-Zа-яА-Я\-.,]{2,}$"); 
 
             if(nameUserRegex.test(self.nameUser())) {
                 return true;

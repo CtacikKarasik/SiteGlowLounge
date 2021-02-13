@@ -24,10 +24,14 @@ function putElemOnPageJS() {
     }
 }
 
+const requestedPathParts = window.location.pathname.toString().split("/");
+
+
+
 po = document.createElement("script");
 po.type = "text/javascript";
 po.async = false;
-po.src = "../js/lib/require.min.js";
+po.src = "../js/libs/require.min.js";
 po.setAttribute("data-main", "../js/config.min.js");
 putElemOnPageJS();
 

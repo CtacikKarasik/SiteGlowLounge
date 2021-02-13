@@ -1,14 +1,14 @@
 define(['knockout.min', 
-        'vm/MainViewModel.min',
-        'services/apiService.min',
-        'services/reservProcess.min'
+        'reserv/vm/MainViewModel.min',
+        'reserv/services/apiService.min',
+        'reserv/services/reservProcess.min'
         ], function() {
     'use strict';
 
     var ko = require('knockout.min');
-    var MainViewModel = require('vm/MainViewModel.min');
-    var ApiService = require('services/apiService.min');
-    var ReservProcess = require('services/reservProcess.min');
+    var MainViewModel = require('reserv/vm/MainViewModel.min');
+    var ApiService = require('reserv/services/apiService.min');
+    var ReservProcess = require('reserv/services/reservProcess.min');
     
 
     function main() {     

@@ -10,10 +10,17 @@ define(function () {
 
 
         this.clickGetListReservedTablesButton = function() {
-            apiService.getListReservedTables(self.startDate(), self.endDate());
-            /*console.log("response:");
-            self.response(resp);*/
+            var apiResponsePromise = apiService.getListReservedTables(self.startDate(), self.endDate());
+            
+            apiResponsePromise.done(function (data, textStatus, jqXHR) {
+                self.response(data);
+            });
+        
+            apiResponsePromise.fail(function (jqXHR, textStatus) {
+                self.response("fail");
+            });
         };
+    
         
     }
     return СontrolPanelViewModel;

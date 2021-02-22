@@ -29,8 +29,13 @@
         </form>
         
     </div>
-    <textarea type="text" name="time" id="time" placeholder="" rows="100" style="margin: 0px; width: 1025px; height: 709px;" data-bind="value: response"></textarea>
-                
+    <textarea type="text" name="time" id="time" placeholder="" rows="100" style="margin: 0px; width: 1025px; height: 209px;" data-bind="value: response"></textarea>
+    
+    
+    <div class="informations">
+        <reservation-list></reservation-list>
+    </div>
+
 </div>
 </body>
 

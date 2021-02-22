@@ -6,8 +6,7 @@ define(function () {
         self.startDate = ko.observable(new Date());
         self.endDate = ko.observable(new Date());
 
-        self.response = ko.observable("...");
-
+        self.response = ko.observable("...");    
 
         this.clickGetListReservedTablesButton = function() {
             var apiResponsePromise = apiService.getListReservedTables(self.startDate(), self.endDate());

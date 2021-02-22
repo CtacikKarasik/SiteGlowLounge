@@ -4,6 +4,7 @@ requirejs.config({
         'jquery': '/js/libs/jquery.min',
         'control': '/js/control_service',
         'reserv': '/js/reservation_service',
+        'text': '/js/libs/text.min',
     }
 });
 

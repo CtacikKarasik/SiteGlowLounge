@@ -1,3 +1,79 @@
-<div class="block_info">
-        
+<div class="block_info" data-bind="foreach: reservList">
+    <div class="status_info">
+        <div class="status" data-bind="html: status">   
+        </div>
+        <div class="edit">   
+        </div>
+    </div>
+    <div class="user_info">
+        <div class="user_name_info" data-bind="html: name">   
+        </div>
+        <div class="phone_info" data-bind="html: phone">   
+        </div> 
+    </div>
+    <div class="reserv_info">
+        <div class="time_info" data-bind="html: time">   
+        </div>
+        <div class="guests_info" data-bind="html: guests">   
+        </div>
+        <div class="commnets_info" data-bind="html: comment">   
+        </div> 
+    </div>
+    <div class="ps4_info" data-bind="html: ps4">   
+    </div>
 </div>
+
+<style>   
+    .block_info{
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 1fr;
+        background-color: aquamarine;
+        width: 100%;
+        height: 100px;
+    }
+
+    .status_info{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        background-color: rgb(216, 226, 68);
+    }
+    .status{
+        background-color: rgb(135, 214, 139);
+    }
+    .edit{
+        background-color: rgb(150, 119, 190);
+    }
+
+
+    .user_info{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        background-color: rgb(207, 99, 48);
+    }
+    .user_name_info{
+        background-color: rgb(138, 211, 199);
+    }
+    .phone_info{
+        background-color: rgb(212, 150, 171);
+    }
+
+    .reserv_info{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        background-color: rgb(107, 116, 201);
+    }
+    .time_info{
+        background-color: rgb(191, 183, 209);
+    }
+    .guests_info{
+        background-color: rgb(165, 241, 158);
+    }
+    .commnets_info{
+        background-color: rgb(187, 129, 102);
+    }
+
+
+    .ps4_info{
+        background-color: rgb(211, 118, 191);
+    }
+</style>

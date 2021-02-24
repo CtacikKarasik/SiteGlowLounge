@@ -81,6 +81,16 @@ gulp.task('control_vm_js', function() {
                 .pipe(gulp.dest('src/js/control_service/vm'));
 });
 
+gulp.task('control_model_js', function() {
+    return gulp .src('src/original_source/js/control_service/model/*.js')
+                .pipe(babel({
+                    presets: ['@babel/env']
+                }))
+                .pipe(rename({ suffix: ".min" }))
+                .pipe(mode.production(uglify()))
+                .pipe(gulp.dest('src/js/control_service/model'));
+});
+
 gulp.task('components_js', function() {
     return gulp .src('src/original_source/js/components/blockReservInfo/*.js')
                 .pipe(babel({
@@ -107,13 +117,6 @@ gulp.task('main_css', function() {
                 .pipe(gulp.dest('src/css'));
 });
 
-gulp.task('components_css', function() {
-    return gulp .src('src/original_source/js/components/blockReservInfo/*.css')
-                .pipe(mode.production(cleanCSS({compatibility: 'ie8'})))
-                .pipe(rename({ suffix: ".min" }))
-                .pipe(gulp.dest('src/js/components/blockReservInfo'));
-});
-
 /*------------- HTML ---------------*/
 gulp.task('main_html', function() {
     return gulp .src('src/original_source/html/*.html')
@@ -127,8 +130,8 @@ gulp.task('components_html', function() {
                 .pipe(gulp.dest('src/js/components/blockReservInfo'));
 });
 
-gulp.task('js', gulp.parallel('main_js', 'reserv_service_js','reserv_js', 'reserv_vm_js', 'control_js', 'control_service_js', 'control_vm_js', 'libs_js', 'components_js'));
-gulp.task('css', gulp.parallel('main_css', 'components_css'));
+gulp.task('js', gulp.parallel('main_js', 'reserv_service_js','reserv_js', 'reserv_vm_js', 'control_js', 'control_service_js', 'control_vm_js', 'libs_js', 'components_js', 'control_model_js'));
+gulp.task('css', gulp.parallel('main_css'));
 gulp.task('html', gulp.parallel('components_html', 'main_html'));
 
 
@@ -142,10 +145,10 @@ gulp.task('watch', function() {
     gulp.watch('src/original_source/js/control_service/*.js', gulp.series('control_js'));
     gulp.watch('src/original_source/js/control_service/services/*.js', gulp.series('control_service_js'));
     gulp.watch('src/original_source/js/control_service/vm/*.js', gulp.series('control_vm_js'));
+    gulp.watch('src/original_source/js/control_service/model/*.js', gulp.series('control_model_js'));
     gulp.watch('src/original_source/js/components/blockReservInfo/*.js', gulp.series('components_js'));
     gulp.watch('src/original_source/js/libs/*.js', gulp.series('libs_js'));
     gulp.watch('src/original_source/css/*.css', gulp.series('main_css'));
-    gulp.watch('src/original_source/js/components/blockReservInfo/*.css', gulp.series('components_css'));
 });
 
 gulp.task('default', gulp.series('watch'));

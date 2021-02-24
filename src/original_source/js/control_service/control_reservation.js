@@ -12,10 +12,10 @@ define(['knockout.min',
 
     function main() {     
         var apiService = new ApiService();
-        var controlPanelViewModel = new СontrolPanelViewModel(ko, apiService);
-        var blockReservInfoViewModel = new BlockReservInfoViewModel(ko);
+        let blockReservInfoViewModel = new BlockReservInfoViewModel(ko);
+        var controlPanelViewModel = new СontrolPanelViewModel(ko, apiService, blockReservInfoViewModel);
 
-
+    
         ko.components.register('reservation-list', {
             viewModel: function() { return blockReservInfoViewModel },
             template: { require: 'text!components/blockReservInfo/blockReservInfoTemplate.html' }
@@ -24,5 +24,5 @@ define(['knockout.min',
         ko.applyBindings(controlPanelViewModel);
     }
 
-    main()
+    main();
  });

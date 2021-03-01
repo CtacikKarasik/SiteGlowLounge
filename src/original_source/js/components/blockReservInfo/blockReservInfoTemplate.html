@@ -1,79 +1,190 @@
 <div class="block_info" data-bind="foreach: reservList">
-    <div class="status_info">
-        <div class="status" data-bind="html: status">   
+    <div class="element_info">
+        <div class="status_info">
+            <div class="status" data-bind="html: status">   
+            </div>
+            <button type="button" class="edit_but">
+                Edit status
+            </button>
         </div>
-        <div class="edit">   
+        <div class="user_info">
+            <div class="user_name_block">
+                <span class="user_name_label">Имя</span>
+                <div class="user_name_info" data-bind="html: name">   
+                </div>
+            </div>
+            <div class="phone_block">
+                <span class="phone_label">Телефон</span>
+                <div class="phone_info" data-bind="html: phone">   
+                </div> 
+            </div>
         </div>
-    </div>
-    <div class="user_info">
-        <div class="user_name_info" data-bind="html: name">   
+        <div class="reserv_info">
+            <div class="time_block">
+                <span class="time_label">Время</span>
+                <div class="time_info" data-bind="html: time">   
+                </div>
+            </div>
+            <div class="guests_block">
+                <span class="guests_label">Гости</span>
+                <div class="guests_info" data-bind="html: guests">   
+                </div>
+            </div>
+            <div class="commnets_block">
+                <span class="commnets_label">Комент</span>
+                <div class="commnets_info" data-bind="html: comment">   
+                </div> 
+            </div>
         </div>
-        <div class="phone_info" data-bind="html: phone">   
-        </div> 
-    </div>
-    <div class="reserv_info">
-        <div class="time_info" data-bind="html: time">   
+        <div class="ps4_info">
+            <img src="../../../../img/ps4_3mini.png" alt="ps4" title="Хотите стол с PS4?" data-bind="visible: isPS4">
         </div>
-        <div class="guests_info" data-bind="html: guests">   
-        </div>
-        <div class="commnets_info" data-bind="html: comment">   
-        </div> 
-    </div>
-    <div class="ps4_info" data-bind="html: ps4">   
     </div>
 </div>
 
 <style>   
     .block_info{
-        display: grid;
-        grid-template-columns: 1fr 2fr 2fr 1fr;
-        background-color: aquamarine;
         width: 100%;
         height: 100px;
+        margin-top: 10px;
+        min-width: 990px;
+    }
+
+    .element_info{
+        display: grid;
+        grid-template-columns: 1fr 2fr 3fr 0.5fr;
+        margin-bottom: 10px;
+        box-shadow: 0px 0px 2px #000000;
     }
 
     .status_info{
         display: grid;
         grid-template-rows: 1fr 1fr;
-        background-color: rgb(216, 226, 68);
+        text-align: center;
+        padding: 5px;
     }
     .status{
-        background-color: rgb(135, 214, 139);
+        color: black;
+        font-size: 24px;
+        margin: auto;
     }
-    .edit{
-        background-color: rgb(150, 119, 190);
+    .edit_but{
+        color: black;
+        font-size: 16px;
+        margin: auto;
+        padding: 8px 15px 8px 15px;
+        border-radius: 100px;
     }
 
-
+    .user_name_block{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding: 5px;
+        margin: 10px 15px 5px 5px;
+    }
     .user_info{
         display: grid;
         grid-template-rows: 1fr 1fr;
-        background-color: rgb(207, 99, 48);
+    }
+    .user_name_label{
+        background-color: #dbdbdb;
+        border-radius: 100px 0px 0px 100px;
+        padding: 5px;
+        text-align: center;
+        margin-right: 5px;
     }
     .user_name_info{
-        background-color: rgb(138, 211, 199);
+        font-size: 24px;
+        background-color: #dbdbdb;
+        border-radius: 0px 100px 100px 0px;
+        padding-left: 5px;
+    }
+
+
+    .phone_block{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding: 5px;
+        margin: 5px 15px 10px 5px;
+    }
+    .phone_label{
+        background-color: #dbdbdb;
+        border-radius: 100px 0px 0px 100px;
+        padding: 5px;
+        text-align: center;
+        margin-right: 5px;
     }
     .phone_info{
-        background-color: rgb(212, 150, 171);
+        font-size: 24px;
+        background-color: #dbdbdb;
+        border-radius: 0px 100px 100px 0px;
+        padding-left: 5px;
     }
 
     .reserv_info{
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
-        background-color: rgb(107, 116, 201);
+    }
+    .time_block{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding: 2px 5px 1px 5px;
+    }
+    .time_label{
+        background-color: #dbdbdb;
+        border-radius: 100px 0px 0px 100px;
+        padding: 5px;
+        text-align: center;
+        margin-right: 5px;
     }
     .time_info{
-        background-color: rgb(191, 183, 209);
+        font-size: 20px;
+        background-color: #dbdbdb;
+        border-radius: 0px 100px 100px 0px;
+        padding-left: 5px;
+    }
+
+    .guests_block{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding: 1px 5px 1px 5px;
+    }
+    .guests_label{
+        background-color: #dbdbdb;
+        border-radius: 100px 0px 0px 100px;
+        padding: 5px;
+        text-align: center;
+        margin-right: 5px;
     }
     .guests_info{
-        background-color: rgb(165, 241, 158);
+        font-size: 20px;
+        background-color: #dbdbdb;
+        border-radius: 0px 100px 100px 0px;
+        padding-left: 5px;
+    }
+
+    .commnets_block{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding: 1px 5px 2px 5px;
+    }
+    .commnets_label{
+        background-color: #dbdbdb;
+        border-radius: 100px 0px 0px 100px;
+        padding: 5px;
+        text-align: center;
+        margin-right: 5px;
     }
     .commnets_info{
-        background-color: rgb(187, 129, 102);
+        font-size: 18px;
+        background-color: #dbdbdb;
+        border-radius: 0px 100px 100px 0px;
+        padding-left: 5px;
     }
 
 
     .ps4_info{
-        background-color: rgb(211, 118, 191);
+        background-color: rgb(255, 255, 255);
+        margin: auto;
     }
 </style>

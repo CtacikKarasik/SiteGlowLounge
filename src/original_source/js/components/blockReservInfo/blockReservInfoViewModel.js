@@ -15,7 +15,7 @@ define(function () {
                                         phone: reservInfolist[i].phone,
                                         time: reservInfolist[i].time,
                                         guests: reservInfolist[i].guests,
-                                        ps4: reservInfolist[i].ps4,
+                                        isPS4: reservInfolist[i].ps4,
                                         comment: reservInfolist[i].comment });
             }
         };
